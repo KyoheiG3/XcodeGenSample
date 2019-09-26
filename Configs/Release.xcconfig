@@ -1,0 +1,4 @@
+#include "./Base.xcconfig"
+//:configuration = Release
+
+OTHER_SWIFT_FLAGS = $(inherited) -DRELEASE
