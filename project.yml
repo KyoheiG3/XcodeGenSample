@@ -1,0 +1,44 @@
+name: XcodeGenSample
+include:
+  - project_test.yml
+configs:
+  Test: debug
+  Debug: debug
+  Release: release
+configFiles:
+  Test: Configs/Test.xcconfig
+  Debug: Configs/Debug.xcconfig
+  Release: Configs/Release.xcconfig
+options:
+  groupSortPosition: top
+attributes:
+  ORGANIZATIONNAME: Kyohei Ito
+targets:
+  XcodeGenSample:
+    type: application
+    platform: iOS
+    configFiles:
+      Test: Configs/App/Test.xcconfig
+      Debug: Configs/App/Debug.xcconfig
+      Release: Configs/App/Release.xcconfig
+    sources:
+      - Configs
+      - XcodeGenSample
+    settings:
+      base:
+        CODE_SIGN_IDENTITY: $(inherited)
+schemes:
+  XcodeGenSample:
+    build:
+      targets:
+        XcodeGenSample: all
+    run:
+      config: Debug
+    test:
+      config: Test
+    profile:
+      config: Release
+    analyze:
+      config: Debug
+    archive:
+      config: Release
